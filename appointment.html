@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book an Appointment</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="appointment.html">Appointments</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Book Your Appointment</h1>
+        <form id="appointment-form">
+            <label for="patient-name">Name:</label>
+            <input type="text" id="patient-name" name="patient-name" required><br>
+
+            <label for="department">Department:</label>
+            <select id="department" name="department">
+                <option value="cardiology">Cardiology</option>
+                <option value="pediatrics">Pediatrics</option>
+                <option value="orthopedics">Orthopedics</option>
+                <option value="general-surgery">General Surgery</option>
+            </select><br>
+
+            <label for="doctor">Preferred Doctor (Optional):</label>
+            <input type="text" id="doctor" name="doctor"><br>
+
+            <label for="appointment-date">Date & Time:</label>
+            <input type="datetime-local" id="appointment-date" name="appointment-date" required><br>
+
+            <label for="contact-info">Contact Info:</label>
+            <input type="text" id="contact-info" name="contact-info" required><br>
+
+            <button type="submit">Submit</button>
+        </form>
+
+        <div id="confirmation-message" style="display:none;">
+            <p>Your appointment request has been submitted. We will contact you shortly.</p>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Hospital Sai</p>
+    </footer>
+
+    <script>
+        document.getElementById('appointment-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            document.getElementById('confirmation-message').style.display = 'block';
+        });
+    </script>
+
+</body>
+</html>
