@@ -5,13 +5,15 @@ body {
     padding: 0;
     background-color: #f4f4f4;
     color: #333;
+    animation: fadeIn 1s ease-in-out;
 }
 
 header {
-    background-color: #009688;
+    background-color: #009688;  /* Primary color */
     padding: 15px;
     color: white;
     text-align: center;
+    animation: slideInDown 0.5s ease-out;
 }
 
 header nav ul {
@@ -28,36 +30,49 @@ header nav ul li a {
     text-decoration: none;
     color: white;
     font-weight: bold;
+    transition: color 0.3s;
+}
+
+header nav ul li a:hover {
+    color: #00796b; /* Darker shade of the primary color */
 }
 
 footer {
-    background-color: #333;
+    background-color: #333; /* Dark footer */
     color: white;
     padding: 15px;
     text-align: center;
+    animation: slideInUp 0.5s ease-out;
 }
 
 footer a {
-    color: #009688;
+    color: #009688; /* Primary color */
     text-decoration: none;
+}
+
+footer a:hover {
+    color: #00796b; /* Darker shade of the primary color */
 }
 
 /* Hero Section */
 .hero {
-    background-color: #009688;
+    background-color: #009688; /* Primary color */
     color: white;
     text-align: center;
     padding: 50px;
+    animation: fadeInUp 1s ease-out;
 }
 
 .hero h1 {
-    color: black;
+    color: #2c3e50;  /* Darker shade of text for contrast */
     font-size: 3rem;
     margin-bottom: 20px;
+    animation: fadeIn 1.5s ease-out;
 }
 
 .hero p {
     font-size: 1.25rem;
+    animation: fadeIn 2s ease-out;
 }
 
 /* Quick Access Section */
@@ -67,6 +82,7 @@ footer a {
     gap: 20px;
     padding: 30px;
     text-align: center;
+    animation: fadeInUp 1.5s ease-out;
 }
 
 .quick-access .card {
@@ -75,21 +91,25 @@ footer a {
     width: 250px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-    transition: transform 0.3s;
+    transition: transform 0.3s, box-shadow 0.3s;
+    animation: fadeInUp 2s ease-out;
+    border-left: 5px solid #009688; /* Accent color for card border */
 }
 
 .quick-access .card:hover {
     transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .quick-access .card h3 {
     font-size: 1.5rem;
     margin-bottom: 10px;
+    color: #333; /* Darker color for better contrast */
 }
 
 .quick-access .card a {
     text-decoration: none;
-    color: #009688;
+    color: #009688; /* Primary color */
     font-weight: bold;
 }
 
@@ -106,6 +126,8 @@ form {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    animation: fadeInUp 2s ease-out;
+    border-top: 4px solid #009688; /* Accent color for form border */
 }
 
 form label {
@@ -120,39 +142,47 @@ form input, form select, form textarea {
     margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    transition: border-color 0.3s;
+}
+
+form input:focus, form select:focus, form textarea:focus {
+    border-color: #009688; /* Highlight with primary color */
 }
 
 form button {
     padding: 10px 20px;
-    background-color: #009688;
+    background-color: #009688; /* Primary color */
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 form button:hover {
-    background-color: #00796b;
+    background-color: #00796b; /* Darker shade of primary color */
 }
 
 /* Chatbot Widget */
 #chatbot-widget {
-    background-color: #009688;
+    background-color: #009688; /* Primary color */
     color: white;
     padding: 20px;
     cursor: pointer;
     border-radius: 8px;
     text-align: center;
+    animation: bounceIn 1s ease-out;
 }
 
 #chatbot-widget:hover {
-    background-color: #00796b;
+    background-color: #00796b; /* Darker shade of primary color */
 }
 
 /* Team & History Section */
 .team, .history {
     padding: 30px;
     text-align: center;
+    animation: fadeInUp 1.5s ease-out;
 }
 
 .team .doctor-card {
@@ -163,11 +193,17 @@ form button:hover {
     display: inline-block;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.team .doctor-card:hover {
+    transform: scale(1.05);
 }
 
 .team .doctor-card h3 {
     font-size: 1.25rem;
     margin-bottom: 10px;
+    color: #333; /* Darker color for better contrast */
 }
 
 .team .doctor-card p {
@@ -177,7 +213,8 @@ form button:hover {
 
 /* Section Titles */
 h1, h2, h3 {
-    color: #009688;
+    color: #009688; /* Primary color */
+    animation: fadeIn 1s ease-out;
 }
 
 /* Media Queries for Responsive Design */
@@ -190,5 +227,58 @@ h1, h2, h3 {
     .quick-access .card {
         width: 90%;
         margin-bottom: 20px;
+    }
+}
+
+/* Keyframes for Animations */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInDown {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInUp {
+    0% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
     }
 }
